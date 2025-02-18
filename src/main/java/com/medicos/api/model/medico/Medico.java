@@ -14,3 +14,4 @@ public class Medico {
     private Especialidade especialidade;
     private String enderco;
 }
+
