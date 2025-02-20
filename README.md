@@ -25,6 +25,72 @@ Verbos HTTP
 - PUT 
 - DELETE
 
-Request [REQUISIÇÃO] -> É o que você passa esperando o retorno
-Response [RESPOSTA] -> É a resposta que você recebe.
+- Request [REQUISIÇÃO] -> É o que você passa esperando o retorno
+- Response [RESPOSTA] -> É a resposta que você recebe.
+
+# Aula 03 
+- `DTO`-> Padrão de projetos onde isolamos cada item que está sendo enviado pelo [simulador_de_requisição]. Data Transfer Object(Objeto de Transferência de Dados).
+- Criação de uma classe `record`(classe do tipo imutavél, todos os atributos serão privados, terão getters e setters mas não poderá mudar os valores) chamada `DadosCadastroMedicos`, onde iremos receber os dados do json e converter em dados autônomos.
+
+- `API` -> É um conjunto de ações e regras para a comunicação entre diferentes ferramentas. Define como os sistemas devem interagir. Normalmente, uma API oferece dados para serem consumidos pelo front-end.
+
+- `POLIMORFISMO` -> É quando um método se comporta de maneira diferente dependendo da forma que é invocado. Significa muitas formas. Ex.:
+-- Sobrecarga de método[OVERLOADING] - Tempo de compilação. 
+-- Sobrescrita de método [OVERRIDING] - Tempo de execução.
+
+- `ABSTRAÇÃO` -> É quando uma classe/método não pode ser instânciada(clonada). [abstract].
+
+# ANOTATIONS - ANOTAÇÕES 
+1. Anotações do Spring web
+`@RequestMapping("/medicos")`
+-> Define que a classe está mapeada para url[endpoint] /medicos.
+
+`RestController` 
+-> Define que a classe é uma classe controladora no Spring.
+
+`GetMapping`
+-> Define que o método será somente leitura.
+
+`PostMapping`
+-> Define que o método irá receber dados. 
+
+`PutMapping`
+-> Atualiza alguma informação
+
+`DeleteMapping`
+-> Deleta dados.
+
+`@RequestBody`
+-> É utilizada quando você irá receber dados pelo sumilador de requisição[insomnia], e informa que os daods serão enviados no corpo da requisição. 
+
+2. Anotações do lombok 
+
+`@Getter`
+-> Cria todos os getteres para todos os atributos da classe.
+`@Setter`
+-> Cria todos os setters para todos os atributos da classe.
+`@AllArgsConstructor`
+-> Cria um método construtor com todos os atributos.
+`@NoArgsConstructor`
+-> Cria um método com nenhum dos atributos. 
+
+3. Anotações do Spring JPA 
+`@Entity`
+-> É uma anotação que você irá utilizar para informar ao spring boot que a classe anotada serã uma tabela no banco de dados.
+
+`@Table`
+-> É uma anotação que você irá utilizar para criar no banco de dados uma tabela com o nome da classe anotada.
+* Você pode alterar o padrão do nome da tabela utilizando: @Table(name = "nomedatabela").
+
+`@Id`
+-> Define que o atributo será uma chave primária  
+
+`@GeneratedValue`
+-> Define que a criação do ID será de forma automática. 
+
+`@Enumerated`
+-> Informa que aquele atributo é uma classe enum.
+
+
+
 
