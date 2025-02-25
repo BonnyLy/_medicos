@@ -29,7 +29,8 @@ Verbos HTTP
 - Response [RESPOSTA] -> É a resposta que você recebe.
 
 # Aula 03 
-- `DTO`-> Padrão de projetos onde isolamos cada item que está sendo enviado pelo [simulador_de_requisição]. Data Transfer Object(Objeto de Transferência de Dados).
+- `DTO`-> Padrão de projetos onde isolamos cada item que está sendo enviado pelo [simulador_de_requisição]. Data Transfer Object(Objeto de Transferência de Dados). Criação de uma classe record chamada DadosCadastroMedico, onde iremos receber os dados do json e converter em dados autonomos.
+
 - Criação de uma classe `record`(classe do tipo imutavél, todos os atributos serão privados, terão getters e setters mas não poderá mudar os valores) chamada `DadosCadastroMedicos`, onde iremos receber os dados do json e converter em dados autônomos.
 
 - `API` -> É um conjunto de ações e regras para a comunicação entre diferentes ferramentas. Define como os sistemas devem interagir. Normalmente, uma API oferece dados para serem consumidos pelo front-end.
@@ -82,14 +83,48 @@ Verbos HTTP
 -> É uma anotação que você irá utilizar para criar no banco de dados uma tabela com o nome da classe anotada.
 * Você pode alterar o padrão do nome da tabela utilizando: @Table(name = "nomedatabela").
 
-`@Id`
--> Define que o atributo será uma chave primária  
-
 `@GeneratedValue`
 -> Define que a criação do ID será de forma automática. 
 
 `@Enumerated`
 -> Informa que aquele atributo é uma classe enum.
+
+`@Embedded`
+-> Anota que uma classe faz parte dessa tabela no banco de dados.
+
+`@Embeddable`
+-> Anota que essa classe irá fazer parte de uma tabela de uma outra classe
+
+`@Id`
+-> Informa que o id será a chave primária(PK) na tabela.
+
+`@GenerateValue(strategy = GenerationType.IDENTITY)`
+-> Infomra que aquele atributo terá geração de valor automatico.
+-> Strategy - É a estrategia utilizada
+-> GenerationType - É o tipo de geração utilizada
+-> IDENTITY - A geração automatica será atraves do ID
+
+
+`@GeneratedValue`
+-> Informa que aquele atributo terá uma geração de valor de automática.
+
+4. Banco De Dados
+
+`Chave primária(PK)` -> É o atributo que identifica a tabela no banco de dados.
+
+`Chave estrangeira(FK)` -> É o atributo que se relaciona com uma tabela que possui esse atributo como chave primária, no banco de dados.
+
+5. Padrões de Projeto
+
+- `DTO`-> Padrão de projetos onde isolamos cada item que está sendo enviado pelo [simulador_de_requisição]. Data Transfer Object(Objeto de Transferência de Dados). Criação de uma classe record chamada DadosCadastroMedico, onde iremos receber os dados do json e converter em dados autonomos.
+
+- `DAO` -> É um padrão de projetos em que separamos a lógica do acesso ao banco de dados do restante da aplicação.
+
+- `INTERFACE` -> É um tipo de padrão de projetos presente no Java, onde uma classe é declarada e ela possui atributos constantes e não pode ser instânciada. É conhecida como uma classe de contrato, onde você poderá utilizar os métodos e atributos dessa classe.
+
+- `INJEÇÃO DE DEPENDENCIAS` ->  É um tipo de padrão de projetos[DI] onde você informa ao Spring Boot que ele irá ficar responsavel pela criação de determinado dado(ele que conhece como funciona). 
+
+
 
 
 

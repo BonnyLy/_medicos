@@ -1,13 +1,14 @@
 package com.medicos.api.model.endereco;
 
 import lombok.*;
+import jakarta.persistence.Embeddable;
 
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-
+@Embeddable
 public class Endereco {
     private String logradouro;
     private String bairro;
@@ -16,4 +17,17 @@ public class Endereco {
     private String uf;
     private String numero;
     private String complemento;
+
+    public Endereco(DadosEndereco dados) {
+        this.logradouro = dados.logradouro();
+        this.bairro = dados.bairro();
+        this.cep = dados.cep();
+        this.uf = dados.uf();
+        this.cidade = dados.cidade();
+        this.numero = dados.numero();
+        this.complemento = dados.complemento();
+    }
+
+
+
 }
