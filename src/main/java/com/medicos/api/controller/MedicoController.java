@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.medicos.api.model.medico.DadosCadastroMedico;
 import com.medicos.api.model.medico.Medico;
 import com.medicos.api.model.medico.MedicoRepository;
