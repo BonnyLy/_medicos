@@ -1,6 +1,8 @@
 package com.medicos.api.model.paciente;
 
 import com.medicos.api.model.endereco.Endereco;
+import com.medicos.api.model.medico.DadosAtualizacaoMedico;
+
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,6 +28,7 @@ public class Paciente {
     private String email;
     private String telefone;
     private String senha;
+    private Boolean ativo = true;
 
     @Embedded
     private Endereco enderco;
@@ -37,4 +40,22 @@ public class Paciente {
         this.senha = dados.senha();
         this.enderco = new Endereco(dados.endereco());
     }
+
+        public void atualizarInformacoes(DadosAtualizacaoPaciente dados) {
+        if (dados.nome() != null) {
+            this.nome = dados.nome();
+        }
+        if (dados.email() != null) {
+            this.email = dados.email();
+        }
+        if (dados.endereco() != null) {
+            this.enderco.atualizarInformacoes(dados.endereco());
+        }
+    }
+
+    public void exclusaoLogica() {
+        this.ativo = false;
+    }
+
+
 }

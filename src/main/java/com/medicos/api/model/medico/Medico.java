@@ -1,6 +1,7 @@
 package com.medicos.api.model.medico;
 
 import lombok.*;
+
 import com.medicos.api.model.endereco.Endereco;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
@@ -24,6 +25,7 @@ public class Medico {
     private String nome;
     private String email;
     private String crm;
+    private Boolean ativo = true;
 
     @Enumerated(EnumType.STRING)
     private Especialidade especialidade;
@@ -37,6 +39,23 @@ public class Medico {
         this.crm = dados.crm();
         this.especialidade = dados.especialidade();
         this.enderco = new Endereco(dados.endereco());
+    }
+
+    //Método responsável por realzar a verificação de qual campo está sendo atualizado.
+    public void atualizarInformacoes(DadosAtualizacaoMedico dados) {
+        if (dados.nome() != null) {
+            this.nome = dados.nome();
+        }
+        if (dados.email() != null) {
+            this.email = dados.email();
+        }
+        if (dados.endereco() != null) {
+            this.enderco.atualizarInformacoes(dados.endereco());
+        }
+    }
+
+    public void exclusaoLogica() {
+        this.ativo = false;
     }
 }
 
