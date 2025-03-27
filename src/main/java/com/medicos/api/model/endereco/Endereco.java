@@ -1,8 +1,7 @@
 package com.medicos.api.model.endereco;
 
+import jakarta.persistence.*;
 import lombok.*;
-import jakarta.persistence.Embeddable;
-
 
 @Getter
 @Setter

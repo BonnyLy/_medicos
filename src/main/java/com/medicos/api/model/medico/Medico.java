@@ -1,17 +1,10 @@
 package com.medicos.api.model.medico;
 
+import com.medicos.api.model.endereco.Endereco;
+
+import jakarta.persistence.*;
 import lombok.*;
 
-import com.medicos.api.model.endereco.Endereco;
-import jakarta.persistence.Embedded;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-// import lombook.*;
 @Getter
 @Setter
 @AllArgsConstructor

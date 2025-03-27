@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.medicos.api.model.medico.DadosAtualizacaoMedico;
 import com.medicos.api.model.paciente.DadosAtualizacaoPaciente;
 import com.medicos.api.model.paciente.DadosCadastroPaciente;
 import com.medicos.api.model.paciente.Paciente;
@@ -19,7 +18,7 @@ import com.medicos.api.model.paciente.PacienteRepository;
 @RestController
 @RequestMapping("/pacientes")
 public class PacienteController {
-    @Autowired //Sobreescrevendo algo, é um padrão utilizado na injeção de dependencia
+    @Autowired 
     private PacienteRepository repository;
 
     @PostMapping
