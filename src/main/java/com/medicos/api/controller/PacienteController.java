@@ -19,25 +19,25 @@ import com.medicos.api.model.paciente.PacienteRepository;
 @RequestMapping("/pacientes")
 public class PacienteController {
     @Autowired 
-    private PacienteRepository repository;
+    private PacienteRepository pacienteRepository;
 
     @PostMapping
     @Transactional
     public void cadastrar(@RequestBody DadosCadastroPaciente dados) {
-        repository.save(new Paciente(dados));
+        pacienteRepository.save(new Paciente(dados));
     }
 
     @PutMapping
     @Transactional
     public void atualizar(@RequestBody DadosAtualizacaoPaciente dados) {
-        var medico = repository.getReferenceById(dados.id());
+        var medico = pacienteRepository.getReferenceById(dados.id());
         medico.atualizarInformacoes(dados);
     }
 
     @DeleteMapping("/{id}")
     @Transactional
     public void excluir(@PathVariable Integer id) {
-        var medico = repository.getReferenceById(id);
+        var medico = pacienteRepository.getReferenceById(id);
         medico.exclusaoLogica();
     }
 

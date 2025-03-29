@@ -1,5 +1,7 @@
 package com.medicos.api.model.consulta;
 
-public class DadosAgendamentoConsulta {
+import java.time.LocalDateTime;
+
+public record DadosAgendamentoConsulta(Integer medicoId, Integer pacienteId, String observacao, Status status, LocalDateTime data) {
     
 }

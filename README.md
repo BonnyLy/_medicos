@@ -124,8 +124,16 @@ Verbos HTTP
 
 - `INJEÇÃO DE DEPENDENCIAS` ->  É um tipo de padrão de projetos[DI] onde você informa ao Spring Boot que ele irá ficar responsavel pela criação de determinado dado(ele que conhece como funciona). 
 
+# RELACONAMENTO ENTRE TABLAS NO SPRING BOOT
 
+`@OneToOne` -> Um para um. (Uma consulta está ligada a um único paciente).
+`OneToMany` -> Um para muitos. (Um médico tem várias consultas durante o dia).
+`ManyToOne` -> Muitos para um. (Várias consultas para um único médico).
+`ManyToMany` -> Muitos para muitos. (Muitos pacientes para muitas consultas).
 
+`@JoinColumn(name='fk')` -> Define o nome da coluna `alias` no banco que faz a ligação.
 
+OBS.: 
+1. Sempre defina o lado "dono" da relação`(@JoinColumn)` no lado de quem tem a `FK(chave estrangeira)`.
 
-
+2.  Use o `Cascade` se quiser que a operação como `persist` ou `remove` sejam propagadas.
